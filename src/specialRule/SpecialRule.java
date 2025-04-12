@@ -38,7 +38,7 @@ public class SpecialRule {
         Scanner scanner = new Scanner(System.in);
         Piece pawn = end.getPiece(); //폰 확정은 아니지만 일단 이름은 pawn
         int targetEndRow = (pawn.getColor() == PieceColor.WHITE) ? 0 : 7; // 판별할 끝을 정하기
-        if ("P".equals(pawn.getSymbol())||"p".equals(pawn.getSymbol()) && end.getRow() == targetEndRow) //폰이면서, 끝랭크인지 확인
+        if (("P".equals(pawn.getSymbol())||"p".equals(pawn.getSymbol())) && end.getRow() == targetEndRow) //폰이면서, 끝랭크인지 확인
         {
             while(true) {
                 System.out.print("Enter the PIECE to promote to (e.g., \"Q\", \"R\", \"N\", \"B\").\n ");
@@ -53,13 +53,17 @@ public class SpecialRule {
 
                 if (newPiece != null) {
                     end.setPiece(newPiece);
+                    System.out.println("=".repeat(25));
                     System.out.println("Promote success");
                     break;
                 } else if (promoteName == 'p' || promoteName == 'P') {
+                    System.out.println("=".repeat(25));
                     System.out.println("Invalid input: Pawn (P, p) cannot be selected for promotion. Try again. ");
                 } else if (promoteName == 'k' || promoteName == 'K') {
+                    System.out.println("=".repeat(25));
                     System.out.println("Invalid input: King (K, k) cannot be selected for promotion. Try again. ");
                 } else {
+                    System.out.println("=".repeat(25));
                     System.out.println("Invalid input: Only Q, R, B, or N allowed. Try again.");
                 }
             }
